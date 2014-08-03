@@ -11,10 +11,7 @@ buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE)
 buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE, return.class="ts")
 ```
 
-``` r
-getModelData(x, na.rm = TRUE)
-modelData(m)
-```
+
 
 ### 4.2 设定模型形式
 
@@ -32,4 +29,10 @@ buildModel(x, method, training.per, ...)
 
 ```
 bM <- buildModel(q.model,method='lm',training.per=c('2006-08-01','2006-09-30'))
+```
+### 4.4 模型结果提取
+
+``` r
+getModelData(x, na.rm = TRUE)
+modelData(m)
 ```
