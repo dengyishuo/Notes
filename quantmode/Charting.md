@@ -4,10 +4,14 @@
 
 #### chartSeries
 
-`chartSeries()`函数是`quantmod`包的主绘图函数。
+
+chartSeries()函数是quantmod包的主绘图函数。
+
+
 `
 args(chart_Series)
 `
+
 该函数的主要参数有：
 
 * x：时序数据
@@ -22,20 +26,26 @@ reChart()是一个重新绘图函数。
 
 ### 3.2 三种基本图形
 #### 条形图
+
 ```
 barChart(CHL)
 barChart(CHL,theme="white")
 ```
+
 #### 蜡烛图
+
 ```
 candleChart(CHL)
 candleChart(CHL,multi.col=T,theme="white")
 ```
+
 #### 线图
+
 ```
 lineChart(CHL)
 lineChart(CHL,theme="white")
 ```
+
 
 ### 3.3 技术分析图
 ```
@@ -189,7 +199,7 @@ addZLEMA()
 
 #### 设置背景颜色
 
-`chartTheme()`函数可以设定图形颜色：
+chartTheme()函数可以设定图形颜色：
 
 * fg.col:foreground color
 * bg.col:background color
