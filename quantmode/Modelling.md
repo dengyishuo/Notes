@@ -5,9 +5,10 @@
 buildData()
 
 ``` r
-buildData(Next(OpCl(DIA)) ~ Lag(TBILL) + I(Lag(OpHi(DIA))^2))
-buildData(Next(OpCl(DIA)) ~ Lag(TBILL), na.rm=FALSE)
-buildData(Next(OpCl(DIA)) ~ Lag(TBILL), na.rm=FALSE, return.class="ts")
+getSymbols("^SSEC");
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)) + I(Lag(OpHi(SSEC))^2))
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE)
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE, return.class="ts")
 ```
 
 ``` r
@@ -19,8 +20,8 @@ modelData(m)
 
 ```
 specifyModel(formula, na.rm=TRUE)
-specifyModel(Next(OpCL(CHL))~Lag(OpHi(CHL),0:3)+Hi(CHL))
-q.model = specifyModel(Next(OpCl(QQQQ)) ~ Lag(OpHi(QQQQ),0:3))
+specifyModel(Next(OpCl(SSEC))~Lag(OpHi(SSEC),0:3)+Hi(SSEC))
+q.model = specifyModel(Next(OpCl(SSEC)) ~ Lag(OpHi(SSEC),0:3))
 ```
 
 ### 4.3 估计模型参数
@@ -30,5 +31,5 @@ buildModel(x, method, training.per, ...)
 ```
 
 ```
-buildModel(q.model,method='lm',training.per=c('2006-08-01','2006-09-30'))
+bM <- buildModel(q.model,method='lm',training.per=c('2006-08-01','2006-09-30'))
 ```
