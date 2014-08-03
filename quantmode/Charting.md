@@ -8,9 +8,9 @@
 chartSeries()函数是quantmod包的主绘图函数。
 
 
-`
+
 args(chart_Series)
-`
+
 
 该函数的主要参数有：
 
