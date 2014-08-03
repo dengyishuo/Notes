@@ -1,17 +1,17 @@
 ## quantmod笔记
 # 1 获取数据
 
-要想用[quantmod](http://www.quantmod.com)进行数据分析，第一步自然得把数据导入到R里面。将数据导入[R](http://r-project.org)里面的著名的教程是[数据导入与导出](http://cran.r-project.org/doc/manuals/r-release/R-data.pdf)。里面对大部分关于导入和导出数据的内容都讲的很明晰，读者可以直接去看，这里不再赘述。下面只说一下针对[quantmod](http://www.quantmod.com)特有的一些数据导入和导出的做法。
+要想用quantmod 进行数据分析，第一步自然得把数据导入到R里面。将数据导入R里面的著名的教程是[数据导入与导出](http://cran.r-project.org/doc/manuals/r-release/R-data.pdf)。里面对大部分关于导入和导出数据的内容都讲的很明晰，读者可以直接去看，这里不再赘述。下面只说一下针对quantmod特有的一些数据导入和导出的做法。
 
-[quantmod](http://www.quantmod.com)中从外部获取数据的途径有三种：
+quantmod中从外部获取数据的途径有三种：
 
 * 从网络上获取数据
 * 从数据库读入数据
-* 基于`read.table`、`read.csv`等函数读取数据并转化为[quantmod](http://www.quantmod.com)可适应的格式
+* 基于read.table、read.csv等函数读取数据并转化为quantmod可适应的格式
 
 ## 1.1 从网络获取数据
 
-[quantmod](http://www.quantmod.com )包中的`getSymbols()`函数可以从网络上获取数据。我们用`args()`函数看一下它的基本用法。
+quantmod包中的getSymbols()函数可以从网络上获取数据。我们用args()函数看一下它的基本用法。
 
 
 ```r
@@ -29,7 +29,7 @@ function (Symbols = NULL, env = parent.frame(), reload.Symbols = FALSE,
 NULL
 ```
 
-`getSymbols()`函数各主要参数的意义如下：
+getSymbols()函数各主要参数的意义如下：
 
 参数|用途
 -------|-------
@@ -43,7 +43,7 @@ auto.assign|是否将函数结构自动载入到工作环境。
 file.path|指定文件路径的字符串。
 ...|其它参数。 
 
-基于`getSymbols()`函数，我们可以从网络上常用的金融数据库中抓取各种金融数据，。目前`getSymbols()`函数支持的数据库包括：
+基于getSymbols()函数，我们可以从网络上常用的金融数据库中抓取各种金融数据。目前，getymbols()函数支持的数据库包括：
 
 * yahoo
 * google
