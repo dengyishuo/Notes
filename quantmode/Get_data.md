@@ -6,7 +6,7 @@ quantmod中从外部获取数据的途径有三种：
 
 * 从网络上获取数据
 * 从数据库读入数据
-* 基于`read.table`、`read.csv`等函数读取数据并转化为quantmod可适应的格式
+* 基于read.table、read.csv等函数读取数据并转化为quantmod可适应的格式
 
 ## 1.1 从网络获取数据
 
@@ -224,6 +224,7 @@ AAPL[options.expiry(AAPL)]
 ### 1.1.6 获取和查看上市公司的财务报表
 
 quantmod中getFinancials()函数和getFin()函数可以获取上市公司的财务报表数据。看看两个函数的用法：
+
 ```
 args(getFinancials)
 args(getFin)
@@ -256,6 +257,7 @@ getFX("EUR/USD",from="2005-01-01")
 getSymbols("USD/EUR",src="oanda")
 getSymbols("USD/EUR",src="oanda",from="2005-01-01")
 ```
+
 ### 1.1.8 获取重金属交易数据
 
 getMetals()函数可以获取重金属的交易数据。
@@ -298,13 +300,16 @@ quantmod除了支持从网络数据库直接抓取数据外，当然也支持从
 ## 1.3 查看和移除股票数据
 
 ### 1.3.1 查看股票数据
+
 ```
 getSymbols("CHL","000023.ss")
 showSymbols(env=.GlobalEnv)
 ```
+
 结果如下：
 
 ### 1.3.2 移除股票数据
+
 ```
 RemoveSymbols("CHL")
 showSymbols(env=.GlobalEnv)
