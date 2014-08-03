@@ -244,7 +244,7 @@ view.Fin(CHL.f)
 
 ### 1.1.7 从网络获取汇市数据
 
-`getFX()`函数可以帮助我们从[oanda](http://www.onada.com)获取汇率数据。
+getFX()函数可以帮助我们从oanda获取汇率数据。
 
 ```
 getFX("USD/JPY")
