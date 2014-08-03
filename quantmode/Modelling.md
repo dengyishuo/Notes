@@ -28,7 +28,7 @@ buildModel(x, method, training.per, ...)
 ```
 
 ```
-bM <- buildModel(q.model,method='lm',training.per=c('2006-08-01','2006-09-30'))
+bM <- buildModel(q.model,method='lm',training.per=c('2013-08-01','2013-09-30'))
 ```
 ### 4.4 模型结果提取
 
@@ -36,3 +36,7 @@ bM <- buildModel(q.model,method='lm',training.per=c('2006-08-01','2006-09-30'))
 getModelData(x, na.rm = TRUE)
 modelData(m)
 ```
+
+### 4.5 模型回测
+
+tradeModel(bM)
