@@ -346,3 +346,8 @@ yahooQF()
 ```
 attachSymbols()
 ```
+
+
+<pre>
+这是邓一硕撰写的quantmod笔记，欢迎分享~
+</pre>
