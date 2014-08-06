@@ -1,14 +1,12 @@
 # 1 获取数据
 
-要想用quantmod进行数据分析，第一步自然得把数据导入到R里面。将数据导入里面的著名的教程是数据导入与导出。里面对大部分关于导入和导出数据的内容都讲的很明晰，读者可以直接去看，这里不再赘述。下面只说一下针对quantmod特有的一些数据导入和导出的做法。
-
-quantmod中从外部获取数据的途径有三种：
+quantmod中从外部获取数据的途径主要有三种：
 
 * 从网络上获取数据
-* 从数据库读入数据
-* 基于read.table、read.csv等函数读取数据并转化为quantmod可适应的格式
+* 从MySQL等数据库读入数据
+* 基于read.table、read.csv等函数读取数据并转化为quantmod适宜的格式
 
-## 1.1 从网络获取数据
+## 1.1 从网络上获取数据
 
 quantmod包中的getSymbols()函数可以从网络上获取数据。我们用args()函数看一下它的基本用法。
 
@@ -27,7 +25,7 @@ function (Symbols = NULL, env = parent.frame(), reload.Symbols = FALSE,
 NULL
 ```
 
-getSymbols()函数各主要参数的意义如下：
+getSymbols函数各主要参数的意义如下：
 
 参数|用途
 -------|-------
@@ -41,22 +39,40 @@ auto.assign|是否将函数结构自动载入到工作环境。
 file.path|指定文件路径的字符串。
 ...|其它参数。 
 
-基于getSymbols()函数，我们可以从网络上常用的金融数据库中抓取各种金融数据。目前getSymbols()函数支持的数据库包括：
+基于getSymbols函数，我们可以从网络上常用的金融数据库中抓取各种金融数据。getSymbols函数目前支持的数据库包括：
 
 * yahoo
 * google
 * FRED
 * oanda
 
-从上面几个数据库中，我们可以获取上市公司的股票日交易数据、股息数据、拆股数据、财务报表数据、汇市数据、重金属交易数据以及美联储官网公布的一些经济数据。
+从上面几个数据库中，我们可以获取上市公司的股票日交易数据、股息数据、拆股数据、财务报表数据、汇市数据、重金属交易数据以及美联储官网公布的若干经济数据。
 
 ### 1.1.1 获取股票日交易数据
 
-基于getSymbols()函数从很容易从前文提到的几个数据库中获取上市公司股票的日交易数据。比如，我们想获取中国移动通讯公司的日交易数据，我们可以输入下面的代码：
+基于getSymbols()函数可以从网络获取上市公司股票的日交易数据。比如，我们想获取中国移动通讯公司的日交易数据，我们可以输入下面的代码：
 
 ``` r
-#例：获取中国移动公司数据
-getSymbols("CHL")
+ getSymbols("CHL")
+    As of 0.4-0, ‘getSymbols’ uses env=parent.frame() and
+ auto.assign=TRUE by default.
+
+ This  behavior  will be  phased out in 0.5-0  when the call  will
+ default to use auto.assign=FALSE. getOption("getSymbols.env") and 
+ getOptions("getSymbols.auto.assign") are now checked for alternate defaults
+
+ This message is shown once per session and may be disabled by setting 
+ options("getSymbols.warning4.0"=FALSE). See ?getSymbol for more details
+[1] "CHL"
+ head(CHL)
+           CHL.Open CHL.High CHL.Low CHL.Close CHL.Volume CHL.Adjusted
+2007-01-03    45.45    46.84   45.45     46.14    3538300        35.40
+2007-01-04    44.25    45.05   43.62     44.43    3210000        34.09
+2007-01-05    44.99    44.99   43.12     43.24    2036300        33.17
+2007-01-08    43.69    44.07   43.16     43.90    1230200        33.68
+2007-01-09    42.98    42.98   41.56     41.85    2566100        32.11
+2007-01-10    41.41    42.12   40.86     41.96    1987000        32.19
+
 ```
 
 代码中的CHL是中国移动通讯公司在美国市场上的股票缩写码。同样的，我们可以获取苹果公司的日交易数据：
