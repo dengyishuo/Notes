@@ -49,4 +49,7 @@ quantmod是R语言中的金融量化投资分析包，提供量化投资分析�
 
 ### 3 更多知识
 
-
+* 学习quantmod提取数据:点击[Get data](https://github.com/dengyishuo/Notes/blob/master/quantmod/Get_data.md)
+* 学习quantmod数据操作:点击[Data manupulation](https://github.com/dengyishuo/Notes/blob/master/quantmod/Data_manupulation.md)
+* 学习quatnmod金融绘图:点击[Charting](https://github.com/dengyishuo/Notes/blob/master/quantmod/Charting.md)
+* 学习quantmod金融建模:点击[Modelling](https://github.com/dengyishuo/Notes/blob/master/quantmod/Modelling.md)
