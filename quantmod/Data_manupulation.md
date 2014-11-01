@@ -89,9 +89,6 @@ has 族函数用来判断数据中是否包含某个列或者字段。
 
 ### 2.2 提取数据的函数
 
-提取数据的函数分两类：列名函数和series族函数，用法类似。
-
-#### 2.2.1 列名函数
 * Op(x):提取开盘价
 * Hi(x):提取最高价
 * Lo(x):提取最低价
@@ -168,13 +165,6 @@ YHOO.Open YHOO.High YHOO.Low YHOO.Close
 2007-01-09     28.00     28.05    27.41      27.58
 2007-01-10     27.48     28.92    27.44      28.70
 ```
-#### 2.2.2 series族函数
-
-* seriesHi(x)：提取开盘价
-* seriesLo(x):提取最低价
-
-```{r}
-
 
 ```
 
@@ -291,13 +281,22 @@ quarterlyReturn(x)
 * findPeaks(x, thresh=0)：找峰值
 * findValleys(x, thresh=0)：找谷底值
 
-#### 2.5.3 差分阈值函数
+#### 2.5.3 series族函数
+
+* seriesHi(x)：提取开盘价
+* seriesLo(x):提取最低价
+
+```{r}
+
+```
+
+#### 2.5.4 差分阈值函数
 
 * seriesIncr(x, thresh=0, diff.=1L)：差分后大于限值的点
 * seriesDecr(x, thresh=0, diff.=1L)：差分后小于限值的点
 * endpoints()：寻找节点
 
-### 2.5.4 日期转换函数
+### 2.5.5 日期转换函数
 
 * to.weekly()：将OHLC数据转化为周数据
 * to.monthly():将PHLC数据转化为月数据
