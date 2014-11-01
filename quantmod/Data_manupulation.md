@@ -1,12 +1,10 @@
 ## 2 基本数据操作
 
-任何数据分析过程都离不开数据操作，金融数据分析也不例外。这里就重点说一说quantmod包中与数据操作相关的一些函数及其用法。在谋划如何介绍这些包中的函数时，我很纠结，因为集中对函数进行学习很容易堕入函数和参数陷阱。会学习的十分难受。首先，按什么顺序来学习这些函数呢？按字母顺序来学习的话，显然是个颇为狗血的决定。因为字母顺序强硬地打破了各个函数之间承接关系。鉴于此，我决定将包中的函数按照用途进行分组。
-
-quantmod包中的函数大致可以归为这么几类：逻辑判断类、数据提取类、时期转换类、计算类、其它类。下面分类介绍一下这些函数，说明这些函数存在的原因以及具体用法。
+任何数据分析过程都离不开数据操作，金融数据分析也不例外。这里就重点说一说quantmod包中与数据操作相关的一些函数及其用法。quantmod包中的函数大致可以归为这么几类：逻辑判断类、数据提取类、时期转换类、计算类、其它类。下面分类介绍一下这些函数，说明这些函数存在的原因以及具体用法。
 
 ### 2.1 逻辑判断函数
 
-为什么要有逻辑判断类呢？因为quantmod包能处理的数据具有格式上的要求，即必须是OHLC、OHLCV、BBO、TBBO、HLC、quantmod、quantmodResults 中的一种，否则的话，函数没法进行正确的计算。这就要求我们在进行其它操作之前，得先判断我们读进来的数据是否属于上述数据中的一种。逻辑判断类的函数就是干这个活计的。逻辑判断类的函数又能细分为两类，即 is 类和 has 类。
+为什么要有逻辑判断类呢？因为quantmod包能处理的数据具有格式上的要求，即必须是OHLC、OHLCV、BBO、TBBO、HLC、quantmod、quantmodResults 中的一种，否则的话，函数没法进行正确的计算。这就要求我们在进行其它操作之前，得先判断我们读进来的数据是否属于上述数据中的一种。逻辑判断类的函数就是干这个活的。逻辑判断类的函数又能细分为两类，即 is 类和 has 类。
 
 #### 2.1.1 is 族函数
 
@@ -17,8 +15,8 @@ is类函数用来判断数据是否属于某个特定类型。具体用法如下
 * is.BBO(x)：检查是否是BBO类型数据
 * is.TBBO(x)：检查是否是TBBO类型数据
 * is.HLC(x):检查是否是HLC类型数据
-* is.quantmod(x):   
-* is.quantmodResults(x):  
+* is.quantmod(x): 检查是否是quantmod对象
+* is.quantmodResults(x):  检查是否是quatmodResults对象
 
 举个例子。我们从网上获取 yahoo 公司的股票数据：
 
@@ -37,47 +35,62 @@ is类函数用来判断数据是否属于某个特定类型。具体用法如下
 2013-10-11     33.67     34.37    33.61      34.15    17006000         34.15
 2013-10-14     33.80     34.10    33.68      34.00    17594900         34.00
 2013-10-15     34.20     34.32    33.06      33.38    42360300         33.38
+## 判断是否是OHLC对象
 > is.OHLC(YHOO)
 [1] TRUE
+## 判断是否是OHLCV对象
 > is.OHLCV(YHOO)
 [1] TRUE
+## 判断是否是HLC对象
 > is.HLC(YHOO)
 [1] TRUE
+## 判断是否是BBO对象
 > is.BBO(YHOO)
 [1] FALSE
+## 判断是否是quantmod对象
 > is.quantmod(YHOO)
 [1] FALSE FALSE
 ```
 
+其它的用法类似，不再赘述。
+
 #### 2.1.2 has 族函数
 
-has 族函数用来判断数据中是否包含某个维度。
+has 族函数用来判断数据中是否包含某个列或者字段。
 
-* has.OHLC(x, which = FALSE) 
-* has.HLC(x, which = FALSE)
-* has.OHLCV(x, which = FALSE)
-* has.Op(x, which = FALSE)
-* has.Hi(x, which = FALSE)
-* has.Lo(x, which = FALSE)
-* has.Cl(x, which = FALSE)
-* has.Vo(x, which = FALSE)
-* has.Ad(x, which = FALSE)
-* has.Ask(x, which = FALSE)
-* has.Bid(x, which = FALSE)
-* has.Price(x, which = FALSE)
-* has.Qty(x, which = FALSE)
-* has.Trade(x, which = FALSE)
+* has.OHLC(x, which = FALSE) ：检查是否有open,high,low,close列或者字段
+* has.HLC(x, which = FALSE)：检查是否有high,low,close列或者字段
+* has.OHLCV(x, which = FALSE)：检查是否有open,high,low,close,volume列或者字段
+* has.Op(x, which = FALSE)：检查是否有open列或者字段
+* has.Hi(x, which = FALSE)：检查是否有high列或者字段
+* has.Lo(x, which = FALSE)：检查是否有low列或者字段
+* has.Cl(x, which = FALSE)：检查是否有close列或者字段
+* has.Vo(x, which = FALSE)：检查是否有volume列或者字段
+* has.Ad(x, which = FALSE)：检查是否有adjust列或者字段
+* has.Ask(x, which = FALSE)：检查是否有ask列或者字段
+* has.Bid(x, which = FALSE)：检查是否有bid列或者字段
+* has.Price(x, which = FALSE)：检查是否有price列或者字段
+* has.Qty(x, which = FALSE)：检查是否Qty列或者字段
+* has.Trade(x, which = FALSE)：检查是否有trade列或者字段
 
 ```{r}
+## 检查是否有open,high,low,close列或者字段
 > has.OHLC(YHOO)
 [1] TRUE TRUE TRUE TRUE
+检查是否有high,low,close列或者字段
 > has.HLC(YHOO)
 [1] TRUE TRUE TRUE
+检查是否有open,high,low,close,volume列或者字段
 > has.OHLCV(YHOO)
 [1] TRUE TRUE TRUE TRUE TRUE
 ```
 
+其它类似，不予赘述。
+
 ### 2.2 提取数据的函数
+
+提取数据的函数分两类：列名函数和series族函数，用法类似。
+
 #### 2.2.1 列名函数
 * Op(x):提取开盘价
 * Hi(x):提取最高价
@@ -88,10 +101,15 @@ has 族函数用来判断数据中是否包含某个维度。
 * HLC(x):提取最高价、最低价和收盘价
 * OHLC(x):提取开盘价、最高价、最低价和收盘价
 
+```{r}
+
+
+
+
+```
 #### 2.2.2 series族函数
 
 * seriesHi(x)：提取开盘价
-
 * seriesLo(x):提取最低价
 
 ### 2.3 简单的计算函数
