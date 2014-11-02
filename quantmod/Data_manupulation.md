@@ -664,7 +664,7 @@ findValleys(YHOO)
 
 ```
 
-#### 2.5.4 差分阈值函数
+#### 2.5.4 涨跌判断函数
 
 * seriesIncr(x, thresh=0, diff.=1L)：差分后大于限值的点
 * seriesDecr(x, thresh=0, diff.=1L)：差分后小于限值的点
