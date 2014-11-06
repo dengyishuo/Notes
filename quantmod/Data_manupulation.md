@@ -556,7 +556,7 @@ lag函数的作用是将数据滞后k期：比如下面的例子中，2007-01-03
 * last(x,k):求后k个
 * []
 
-```
+``` r
 # 截取第一个数据
 > first(YHOO)
            YHOO.Open YHOO.High YHOO.Low YHOO.Close YHOO.Volume YHOO.Adjusted
@@ -652,8 +652,12 @@ lag函数的作用是将数据滞后k期：比如下面的例子中，2007-01-03
 * findValleys(x, thresh=0)：找谷底值
 
 ```{r}
-findPeaks(YHOO)
-findValleys(YHOO)
+## 返回峰值对应的序号
+> head(findPeaks(Op(YHOO)))
+[1]  6 10 17 22 24 28
+
+> head(findValleys(Op(YHOO)))
+[1]  3  7 15 20 23 25
 ```
 #### 2.5.3 series族函数
 
@@ -661,14 +665,38 @@ findValleys(YHOO)
 * seriesLo(x):提取一段时序的最低价
 
 ```{r}
-
+> seriesHi(Op(YHOO))
+           YHOO.Open
+2014-11-05     47.62
+> seriesLo(Op(YHOO))
+           YHOO.Open
+2008-11-20       9.1
 ```
 
 #### 2.5.4 涨跌判断函数
 
-* seriesIncr(x, thresh=0, diff.=1L)：差分后大于限值的点
-* seriesDecr(x, thresh=0, diff.=1L)：差分后小于限值的点
+* seriesIncr(x, thresh=0, diff.=1L)：上涨
+* seriesDecr(x, thresh=0, diff.=1L)：下跌
 * endpoints()：寻找节点
+
+``` r
+> head(seriesIncr(Op(YHOO)))
+           YHOO.Open
+2007-01-03        NA
+2007-01-04     FALSE
+2007-01-05      TRUE
+2007-01-08      TRUE
+2007-01-09      TRUE
+2007-01-10     FALSE
+> head(seriesDecr(Op(YHOO)))
+           YHOO.Open
+2007-01-03        NA
+2007-01-04      TRUE
+2007-01-05     FALSE
+2007-01-08     FALSE
+2007-01-09     FALSE
+2007-01-10      TRUE
+```
 
 ### 2.5.5 日期转换函数
 
