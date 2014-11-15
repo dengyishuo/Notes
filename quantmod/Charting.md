@@ -23,7 +23,7 @@ chartSeries()函数是quantmod包的主绘图函数。
 > chartSeries(GS) 
 ```
 
-[](.img/quantmod_pic_1.png)
+![](.img/quantmod_pic_1.png)
 #### reChart
 
 reChart()是一个重新绘图函数。
@@ -40,14 +40,14 @@ reChart(major.ticks='months',subset='first 16 weeks')
 barChart(GS,theme='white.mono',bar.type='hlc')
 ```
 
-[](.img/quantmod_pic_2.png)
+![](.img/quantmod_pic_2.png)
 #### 蜡烛图
 
 ```r
 candleChart(GS,multi.col=TRUE,theme='white') 
 candleChart(CHL,multi.col=T,theme="white")
 ```
-[](.img/quantmod_pic_3.png)
+![](.img/quantmod_pic_3.png)
 #### 线图
 
 ```r
@@ -55,7 +55,7 @@ lineChart(CHL)
 lineChart(CHL,theme="white")
 lineChart(GS,line.type='h',TA=NULL) 
 ```
-[](.img/quantmod_pic_4.png)
+![](.img/quantmod_pic_4.png)
 ### 3.3 技术分析
 
 ``` r
