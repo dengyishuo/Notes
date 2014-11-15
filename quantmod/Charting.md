@@ -7,11 +7,6 @@
 
 chartSeries()函数是quantmod包的主绘图函数。
 
-
-
-args(chart_Series)
-
-
 该函数的主要参数有：
 
 * x：时序数据
@@ -20,34 +15,45 @@ args(chart_Series)
 * pars:图形参数
 * theme:主题
 
+比如：
+
+``` r
+> getSymbols("GS") #Goldman OHLC from yahoo 
+[1] "GS"
+> chartSeries(GS) 
+```
 #### reChart
 
 reChart()是一个重新绘图函数。
 
+```r
+chartSeries(GS) 
+reChart(major.ticks='months',subset='first 16 weeks') 
+```
+
 ### 3.2 三种基本图形
 #### 条形图
 
-```
-barChart(CHL)
-barChart(CHL,theme="white")
+```r
+barChart(GS,theme='white.mono',bar.type='hlc')
 ```
 
 #### 蜡烛图
 
-```
-candleChart(CHL)
+```r
+candleChart(GS,multi.col=TRUE,theme='white') 
 candleChart(CHL,multi.col=T,theme="white")
 ```
 
 #### 线图
 
-```
+```r
 lineChart(CHL)
 lineChart(CHL,theme="white")
+lineChart(GS,line.type='h',TA=NULL) 
 ```
 
-
-### 3.3 技术分析图
+### 3.3 技术分析
 
 ``` r
 require(TTR)
@@ -203,24 +209,24 @@ addZLEMA()
 
 chartTheme()函数可以设定图形颜色：
 
-* fg.col:foreground color
-* bg.col:background color
-* grid.col:grid color
-* border:border color
-* minor.tick:minor tickmark color
-* major.tick:major tickmark color
-* up.col:up bar/candle color
-* dn.col:down bar/candle color
-* up.up.col:up after up bar/candle color
-* up.dn.col:up after down bar/candle color
-* dn.dn.col:down after down bar/candle color
-* dn.up.col:down after up bar/candle color
-* up.border:up bar/candle border color
-* dn.border:down bar/candle border color
-* up.up.border:up after up bar/candle border color
-* up.dn.border:up after down bar/candle border color
-* dn.dn.border:down after down bar/candle border color
-* dn.up.border:down after up bar/candle border color 
+* fg.col:前景色
+* bg.col:背景色
+* grid.col:网格线颜色
+* border:框线颜色
+* minor.tick:最小刻度标记的颜色
+* major.tick:最大刻度标记的颜色
+* up.col:上涨日对应的条形或蜡烛图颜色
+* dn.col:下跌日对应的条形或蜡烛图颜色
+* up.up.col:连续上涨日的条形或者蜡烛图颜色
+* up.dn.col:先涨后跌日的条形或者蜡烛图颜色
+* dn.dn.col:连续下跌日的条形或者蜡烛图颜色
+* dn.up.col:先跌后涨日的条形或者蜡烛图颜色
+* up.border:上涨日对应的条形或者蜡烛图边框线颜色
+* dn.border:下跌日对应的条形或者蜡烛图边框线颜色
+* up.up.border:连续上涨日对应的条形或者蜡烛图颜色
+* up.dn.border:先涨后跌日对应的条形或者蜡烛图颜色
+* dn.dn.border:连续下跌日对应的条形或者蜡烛图颜色
+* dn.up.border:先跌后涨日对应的条形或者蜡烛图颜色
 
 ### 3.5 图形缩放
 
