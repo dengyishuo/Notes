@@ -45,18 +45,77 @@ barChart(GS,theme='white.mono',bar.type='hlc')
 
 ```r
 candleChart(GS,multi.col=TRUE,theme='white') 
-candleChart(CHL,multi.col=T,theme="white")
+candleChart(GS,multi.col=T,theme="white")
 ```
 ![](./img/quantmod_pic_3.png)
 #### 线图
 
 ```r
-lineChart(CHL)
-lineChart(CHL,theme="white")
+lineChart(GS)
+lineChart(GS,theme="white")
 lineChart(GS,line.type='h',TA=NULL) 
 ```
 ![](./img/quantmod_pic_4.png)
-### 3.3 技术分析
+
+### 3.3 修饰图形
+
+通过chartSeries中的图形参数还可以对图形进行修饰。
+
+#### 修饰图形
+
+``` r
+## 将图形主题修改为white
+chartSeries(GS,theme="white") 
+```
+
+#### 定制绘图主题
+
+chartTheme()函数可以绘图主题：
+
+* fg.col:前景色
+* bg.col:背景色
+* grid.col:网格线颜色
+* border:框线颜色
+* minor.tick:最小刻度标记的颜色
+* major.tick:最大刻度标记的颜色
+* up.col:上涨日对应的条形或蜡烛图颜色
+* dn.col:下跌日对应的条形或蜡烛图颜色
+* up.up.col:连续上涨日的条形或者蜡烛图颜色
+* up.dn.col:先涨后跌日的条形或者蜡烛图颜色
+* dn.dn.col:连续下跌日的条形或者蜡烛图颜色
+* dn.up.col:先跌后涨日的条形或者蜡烛图颜色
+* up.border:上涨日对应的条形或者蜡烛图边框线颜色
+* dn.border:下跌日对应的条形或者蜡烛图边框线颜色
+* up.up.border:连续上涨日对应的条形或者蜡烛图颜色
+* up.dn.border:先涨后跌日对应的条形或者蜡烛图颜色
+* dn.dn.border:连续下跌日对应的条形或者蜡烛图颜色
+* dn.up.border:先跌后涨日对应的条形或者蜡烛图颜色
+
+比如：
+
+``` r
+chartTheme()
+chartTheme('white')
+chartTheme('white',up.col='blue',dn.col='red')
+
+# A TA example
+chartTheme(addRSI.col='red')
+
+str(chartTheme())
+```
+
+### 3.4 图形缩放
+
+``` r
+> zooom(n=1, eps=2)
+select left and right extremes by clicking the chart
+done
+> zoomChart(subset, yrange=NULL)
+> zoomChart("2013::", yrange=NULL)
+> zoomChart("2014::", yrange=NULL)
+> zoomChart("2014-06::", yrange=NULL)
+```
+### 3.5 技术分析图形
 
 ``` r
 require(TTR)
@@ -205,38 +264,6 @@ addZLEMA()
   * newTA()
   * setTA(type = c("chartSeries", "barChart", "candleChart"))
   * listTA(dev)
-
-### 3.4 修饰图形
-
-#### 设置背景颜色
-
-chartTheme()函数可以设定图形颜色：
-
-* fg.col:前景色
-* bg.col:背景色
-* grid.col:网格线颜色
-* border:框线颜色
-* minor.tick:最小刻度标记的颜色
-* major.tick:最大刻度标记的颜色
-* up.col:上涨日对应的条形或蜡烛图颜色
-* dn.col:下跌日对应的条形或蜡烛图颜色
-* up.up.col:连续上涨日的条形或者蜡烛图颜色
-* up.dn.col:先涨后跌日的条形或者蜡烛图颜色
-* dn.dn.col:连续下跌日的条形或者蜡烛图颜色
-* dn.up.col:先跌后涨日的条形或者蜡烛图颜色
-* up.border:上涨日对应的条形或者蜡烛图边框线颜色
-* dn.border:下跌日对应的条形或者蜡烛图边框线颜色
-* up.up.border:连续上涨日对应的条形或者蜡烛图颜色
-* up.dn.border:先涨后跌日对应的条形或者蜡烛图颜色
-* dn.dn.border:连续下跌日对应的条形或者蜡烛图颜色
-* dn.up.border:先跌后涨日对应的条形或者蜡烛图颜色
-
-### 3.5 图形缩放
-
-``` r
-zooom(n=1, eps=2)
-zoomChart(subset, yrange=NULL)
-```
 
 ### 3.6  图形存储
 
