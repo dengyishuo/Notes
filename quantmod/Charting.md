@@ -68,9 +68,11 @@ lineChart(GS,line.type='h',TA=NULL)
 chartSeries(GS,theme="white") 
 ```
 
+![](./img/quantmod_pic_5.png)
+
 #### 定制绘图主题
 
-chartTheme()函数可以绘图主题：
+借助chartSeries函数中的theme函数可以替换绘图主题，如果对当前绘图主题不满意的话，可以通过chartTheme函数进行定制。通过chartTheme函数可以定制的元素如下：
 
 * fg.col:前景色
 * bg.col:背景色
@@ -91,30 +93,199 @@ chartTheme()函数可以绘图主题：
 * dn.dn.border:连续下跌日对应的条形或者蜡烛图颜色
 * dn.up.border:先跌后涨日对应的条形或者蜡烛图颜色
 
-比如：
+举个例子，先看看当前主题
 
 ``` r
-chartTheme()
-chartTheme('white')
-chartTheme('white',up.col='blue',dn.col='red')
+> chartTheme()
+List of 27
+ $ fg.col      : chr "#666666"
+ $ bg.col      : chr "#222222"
+ $ grid.col    : chr "#303030"
+ $ border      : chr "#666666"
+ $ minor.tick  : chr "#303030"
+ $ major.tick  : chr "#AAAAAA"
+ $ up.col      : chr "#00FF00"
+ $ dn.col      : chr "#FF9900"
+ $ dn.up.col   : chr "#888888"
+ $ up.up.col   : chr "#FFFFFF"
+ $ dn.dn.col   : chr "#FF0000"
+ $ up.dn.col   : chr "#000000"
+ $ up.border   : chr "#666666"
+ $ dn.border   : chr "#666666"
+ $ dn.up.border: chr "#666666"
+ $ up.up.border: chr "#666666"
+ $ dn.dn.border: chr "#666666"
+ $ up.dn.border: chr "#666666"
+ $ main.col    : chr "#999999"
+ $ sub.col     : chr "#999999"
+ $ area        : chr "#252525"
+ $ fill        : chr "#282828"
+ $ Expiry      : chr "#383838"
+ $ BBands.col  : chr "red"
+ $ BBands.fill : chr "#282828"
+ $ BBands      :List of 2
+  ..$ col : chr "red"
+  ..$ fill: chr "#282828"
+ $ theme.name  : chr "black"
+ - attr(*, "class")= chr "chart.theme"
+```
 
+看看white主题的内容：
+
+```r
+> chartTheme('white')
+List of 24
+ $ fg.col      : chr "#000000"
+ $ bg.col      : chr "#F0F0F0"
+ $ grid.col    : chr "#CCCCCC"
+ $ border      : chr "#444444"
+ $ minor.tick  : chr "#888888"
+ $ major.tick  : chr "#000000"
+ $ up.col      : chr "#00CC00"
+ $ dn.col      : chr "#FF7700"
+ $ dn.up.col   : chr "#888888"
+ $ up.up.col   : chr "#FFFFFF"
+ $ dn.dn.col   : chr "#FF0000"
+ $ up.dn.col   : chr "#000000"
+ $ up.border   : chr "#444444"
+ $ dn.border   : chr "#444444"
+ $ dn.up.border: chr "#444444"
+ $ up.up.border: chr "#444444"
+ $ dn.dn.border: chr "#444444"
+ $ up.dn.border: chr "#444444"
+ $ main.col    : chr "#555555"
+ $ sub.col     : chr "#555555"
+ $ area        : chr "#FFFFFF"
+ $ fill        : chr "#F7F7F7"
+ $ Expiry      : chr "#C9C9C9"
+ $ theme.name  : chr "white"
+ - attr(*, "class")= chr "chart.theme"
+```
+
+修改white主题中的上涨日对应的条形或蜡烛图颜色，下跌日对应的条形或蜡烛图颜色。
+
+``` r
+> chartTheme('white',up.col='blue',dn.col='red')
+List of 24
+ $ fg.col      : chr "#000000"
+ $ bg.col      : chr "#F0F0F0"
+ $ grid.col    : chr "#CCCCCC"
+ $ border      : chr "#444444"
+ $ minor.tick  : chr "#888888"
+ $ major.tick  : chr "#000000"
+ $ up.col      : chr "blue"
+ $ dn.col      : chr "red"
+ $ dn.up.col   : chr "#888888"
+ $ up.up.col   : chr "#FFFFFF"
+ $ dn.dn.col   : chr "#FF0000"
+ $ up.dn.col   : chr "#000000"
+ $ up.border   : chr "#444444"
+ $ dn.border   : chr "#444444"
+ $ dn.up.border: chr "#444444"
+ $ up.up.border: chr "#444444"
+ $ dn.dn.border: chr "#444444"
+ $ up.dn.border: chr "#444444"
+ $ main.col    : chr "#555555"
+ $ sub.col     : chr "#555555"
+ $ area        : chr "#FFFFFF"
+ $ fill        : chr "#F7F7F7"
+ $ Expiry      : chr "#C9C9C9"
+ $ theme.name  : chr "white"
+ - attr(*, "class")= chr "chart.theme"
+```
+
+还可以修改技术指标对应的图形元素。
+
+``` r
 # A TA example
-chartTheme(addRSI.col='red')
-
-str(chartTheme())
+> chartTheme(addRSI.col='red')
+List of 28
+ $ fg.col      : chr "#666666"
+ $ bg.col      : chr "#222222"
+ $ grid.col    : chr "#303030"
+ $ border      : chr "#666666"
+ $ minor.tick  : chr "#303030"
+ $ major.tick  : chr "#AAAAAA"
+ $ up.col      : chr "#00FF00"
+ $ dn.col      : chr "#FF9900"
+ $ dn.up.col   : chr "#888888"
+ $ up.up.col   : chr "#FFFFFF"
+ $ dn.dn.col   : chr "#FF0000"
+ $ up.dn.col   : chr "#000000"
+ $ up.border   : chr "#666666"
+ $ dn.border   : chr "#666666"
+ $ dn.up.border: chr "#666666"
+ $ up.up.border: chr "#666666"
+ $ dn.dn.border: chr "#666666"
+ $ up.dn.border: chr "#666666"
+ $ main.col    : chr "#999999"
+ $ sub.col     : chr "#999999"
+ $ area        : chr "#252525"
+ $ fill        : chr "#282828"
+ $ Expiry      : chr "#383838"
+ $ BBands.col  : chr "red"
+ $ BBands.fill : chr "#282828"
+ $ BBands      :List of 2
+  ..$ col : chr "red"
+  ..$ fill: chr "#282828"
+ $ theme.name  : chr "black"
+ $ addRSI.col  : chr "red"
+ - attr(*, "class")= chr "chart.theme"
+> str(chartTheme())
+List of 27
+ $ fg.col      : chr "#666666"
+ $ bg.col      : chr "#222222"
+ $ grid.col    : chr "#303030"
+ $ border      : chr "#666666"
+ $ minor.tick  : chr "#303030"
+ $ major.tick  : chr "#AAAAAA"
+ $ up.col      : chr "#00FF00"
+ $ dn.col      : chr "#FF9900"
+ $ dn.up.col   : chr "#888888"
+ $ up.up.col   : chr "#FFFFFF"
+ $ dn.dn.col   : chr "#FF0000"
+ $ up.dn.col   : chr "#000000"
+ $ up.border   : chr "#666666"
+ $ dn.border   : chr "#666666"
+ $ dn.up.border: chr "#666666"
+ $ up.up.border: chr "#666666"
+ $ dn.dn.border: chr "#666666"
+ $ up.dn.border: chr "#666666"
+ $ main.col    : chr "#999999"
+ $ sub.col     : chr "#999999"
+ $ area        : chr "#252525"
+ $ fill        : chr "#282828"
+ $ Expiry      : chr "#383838"
+ $ BBands.col  : chr "red"
+ $ BBands.fill : chr "#282828"
+ $ BBands      :List of 2
+  ..$ col : chr "red"
+  ..$ fill: chr "#282828"
+ $ theme.name  : chr "black"
+ - attr(*, "class")= chr "chart.theme"
 ```
 
 ### 3.4 图形缩放
 
+zooom函数可以对chartSeries函数的绘图结果进行缩放。用法很简单，绘图之后，敲入`zooom`函数，根据提示分别点击结果区间对应的左边界和右边界即可。
+
 ``` r
-> zooom(n=1, eps=2)
+ zooom(n=1, eps=2)
 select left and right extremes by clicking the chart
 done
+```
+
+![](./img/quantmod_pic_5.png)
+
+另外一种用法是zoomChart，这个可以通过设定图形的时间区间来更精确的对图形进行缩放。
+
+```r
 > zoomChart(subset, yrange=NULL)
 > zoomChart("2013::", yrange=NULL)
 > zoomChart("2014::", yrange=NULL)
 > zoomChart("2014-06::", yrange=NULL)
 ```
+
 ### 3.5 技术分析图形
 
 ``` r
