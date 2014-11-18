@@ -1,19 +1,6 @@
 ## 4 金融投资建模
 
-### 4.1 预处理数据
-
-buildData()
-
-``` r
-getSymbols("^SSEC");
-buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)) + I(Lag(OpHi(SSEC))^2))
-buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE)
-buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE, return.class="ts")
-```
-
-
-
-### 4.2 设定模型形式
+### 4.1 设定模型形式
 
 specifyModel函数可以设定统计量化模型的模型形式。
 
@@ -40,6 +27,8 @@ Fitted Model:
         None Fitted
 ```
 
+### 4.2 查看模型数据
+
 modelData函数可以查看模型设定过程中生成的新数据集。
 
 ```r
@@ -52,7 +41,19 @@ modelData函数可以查看模型设定过程中生成的新数据集。
 2007-01-16  -0.002941842            0.011699931            0.006852552            0.020286396            0.017145617 2830.80
 2007-01-17  -0.005594093            0.002036660            0.011699931            0.006852552            0.020286396 2870.42
 ```
-### 4.3 估计模型参数
+
+### 4.3 构建模型数据
+
+buildData()
+
+``` r
+getSymbols("^SSEC");
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)) + I(Lag(OpHi(SSEC))^2))
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE)
+buildData(Next(OpCl(SSEC)) ~ Lag(OpCl(SSEC)), na.rm=FALSE, return.class="ts")
+```
+
+### 4.4 估计模型参数
 
 ```
 buildModel(x, method, training.per, ...)
@@ -61,13 +62,12 @@ buildModel(x, method, training.per, ...)
 ```
 bM <- buildModel(q.model,method='lm',training.per=c('2013-08-01','2013-09-30'))
 ```
-### 4.4 模型结果提取
+### 4.5 模型结果提取
 
 ``` r
 getModelData(x, na.rm = TRUE)
-modelData(m)
 ```
 
-### 4.5 模型回测
+### 4.6 模型回测
 
 tradeModel(bM)
