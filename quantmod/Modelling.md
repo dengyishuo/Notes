@@ -140,7 +140,7 @@ getModelData(x, na.rm = TRUE)
 
 tradeModel(bM)
 
-``` e
+``` r
 > tradeModel(bM)
 
   Model:  lm1416303379.71439 
