@@ -68,7 +68,7 @@ buildModel(x, method, training.per, ...)
 
 从最简单的线型模型开始。
 
-```
+``` r
 ## 简单的线型模型
 > bM <- buildModel(q.model,method='lm',training.per=c('2013-08-01','2013-09-30'))
 ## 显示结果
