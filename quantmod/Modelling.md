@@ -29,7 +29,9 @@ Fitted Model:
 
 ### 4.2 查看模型数据
 
-modelData函数可以查看模型设定过程中生成的新数据集。
+modelData函数可以查看模型设定过程中生成的新数据集。该函数共有三个参数，分别是x,data.window 和 exclude.training。其中，x是specifyModel函数的结果，data.window用来设定数据集的历史区间，exclude.training用来移除训练期间。
+
+比如，可以查看q.model对应的数据集。
 
 ```r
 > head(modelData(q.model))
