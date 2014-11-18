@@ -139,3 +139,26 @@ getModelData(x, na.rm = TRUE)
 ### 4.6 模型回测
 
 tradeModel(bM)
+
+``` e
+> tradeModel(bM)
+
+  Model:  lm1416303379.71439 
+
+  C.A.G.R.:  -3.19%     H.P.R.:  -30.86% 
+
+  Returns by period summary:
+
+             weekly monthly quarterly  yearly
+    Max.      9.56%   9.70%    20.43%  14.66%
+    3rd Qu.   0.96%   2.84%     1.45%  -1.29%
+    Mean     -0.06%  -0.29%    -0.86%  -3.89%
+    Median   -0.22%  -0.31%    -0.99%  -5.40%
+    2rd Qu.  -1.14%  -3.37%    -4.12% -11.30%
+    Min.    -10.05% -12.64%   -13.47% -15.08%
+
+  Period to date returns:
+
+             weekly monthly quarterly yearly
+             -0.26%  -2.85%    -3.40% -4.76%
+```
