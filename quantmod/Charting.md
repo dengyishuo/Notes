@@ -4,7 +4,6 @@
 
 #### chartSeries
 
-
 chartSeries()函数是quantmod包的主绘图函数。
 
 该函数的主要参数有：
@@ -267,17 +266,24 @@ List of 27
 
 ### 3.4 图形缩放
 
-zooom函数可以对chartSeries函数的绘图结果进行缩放。用法很简单，绘图之后，敲入`zooom`函数，根据提示分别点击结果区间对应的左边界和右边界即可。
+当我们查看金融数据的图形时，有时候会希望查看其中某个时段对应的图形。这时，我们可以借助 zooom() 函数对 chartSeries() 函数的绘图结果进行缩放或者说截取图形子集。zooom() 的用法很简单，在现有绘图基础上，运行 zooom() 函数，然后，根据提示分别点击结果区间对应的左边界和右边界即可。
 
 ``` r
- zooom(n=1, eps=2)
+require(quantmod) # 载入quantmod包
+getSymbols("GS")  # 获取高盛公司的股票行情数据
+chartSeries(GS,theme="white")  # 绘制股票行情数据图，结果如图3.4.1
+# 对图形进行缩放
+zooom(n=1, eps=2)     #  结果如图3.4.2
 select left and right extremes by clicking the chart
 done
 ```
 
-![](./img/quantmod_pic_5.png)
+![图3.4.1](./img/quantmod_3.4.1.png)
 
-另外一种用法是zoomChart，这个可以通过设定图形的时间区间来更精确的对图形进行缩放。
+
+![图3.4.2](./img/quantmod_3.4.2.png)
+
+另一个解决办法是运行zoomChart()函数，这个函数可以通过设定图形对应的时间区间来更精确的对图形进行缩放。
 
 ```r
 > zoomChart(subset, yrange=NULL)
