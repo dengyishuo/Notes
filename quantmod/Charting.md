@@ -278,7 +278,7 @@ select left and right extremes by clicking the chart
 done
 ```
 
-![图3.4.1](./img/quantmod_3.4.1.png)
+![图3.4.1](./img/quantmod_pic_6.png)
 
 
 ![图3.4.2](./img/quantmod_3.4.2.png)
