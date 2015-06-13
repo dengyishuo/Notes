@@ -35,18 +35,23 @@ is类函数用来判断数据是否属于某个特定类型。具体用法如下
 2013-10-11     33.67     34.37    33.61      34.15    17006000         34.15
 2013-10-14     33.80     34.10    33.68      34.00    17594900         34.00
 2013-10-15     34.20     34.32    33.06      33.38    42360300         33.38
+
 ## 判断是否是OHLC对象
 > is.OHLC(YHOO)
 [1] TRUE
+
 ## 判断是否是OHLCV对象
 > is.OHLCV(YHOO)
 [1] TRUE
+
 ## 判断是否是HLC对象
 > is.HLC(YHOO)
 [1] TRUE
+
 ## 判断是否是BBO对象
 > is.BBO(YHOO)
 [1] FALSE
+
 ## 判断是否是quantmod对象
 > is.quantmod(YHOO)
 [1] FALSE FALSE
@@ -77,9 +82,11 @@ has 族函数用来判断数据中是否包含某个列或者字段。
 # 检查是否有open,high,low,close列或者字段
 > has.OHLC(YHOO)
 [1] TRUE TRUE TRUE TRUE
+
 # 检查是否有high,low,close列或者字段
 > has.HLC(YHOO)
 [1] TRUE TRUE TRUE
+
 # 检查是否有open,high,low,close,volume列或者字段
 > has.OHLCV(YHOO)
 [1] TRUE TRUE TRUE TRUE TRUE
@@ -822,6 +829,7 @@ Daily periodicity from 2007-01-03 to 2014-11-05
 > seriesHi(Op(YHOO))
            YHOO.Open
 2014-11-05     47.62
+
 > seriesLo(Op(YHOO))
            YHOO.Open
 2008-11-20       9.1
@@ -842,6 +850,7 @@ Daily periodicity from 2007-01-03 to 2014-11-05
 2007-01-08      TRUE
 2007-01-09      TRUE
 2007-01-10     FALSE
+
 > head(seriesDecr(Op(YHOO)))
            YHOO.Open
 2007-01-03        NA
