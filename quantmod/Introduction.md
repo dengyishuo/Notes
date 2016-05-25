@@ -8,7 +8,9 @@ quantmod是R语言中的金融量化投资分析包，提供量化投资分析�
 
 ### 2 quantmod能做什么？
 
-#### 2.1  提取数据
+#### 2.1  抓取数据
+
+比如，运行下面的代码可以获得中国移动的日交易数据：
 
 ```
 > getSymbols("CHL");
@@ -24,15 +26,22 @@ quantmod是R语言中的金融量化投资分析包，提供量化投资分析�
 
 ```
 
-#### 2.2 数据重整
+#### 2.2 数据预处理
+
+获取数据之后，quantmod 还包装了一些对建模数据预处理的函数。下面是一个简单的例子：
 
 ```
+# 获取高盛公司的交易数据
 > getSymbols("GS") #Goldman OHLC from yahoo
 [1] "GS"
-> is.OHLC(GS) # does the data contain at least OHL and C?
-> has.Vo(GS) # how about volume?
-> Op(GS) # just the Open column please. 
-> seriesHi(GS) # where and what was the high point 
+# 判断数据是否包含open\high\low等数据列
+> is.OHLC(GS) 
+# 判断数据是否包含交易量
+> has.Vo(GS)
+# 提取收盘价
+> Op(GS) 
+# 提取局部高点
+> seriesHi(GS) 
 ```
 
 #### 2.3 金融数据可视化
@@ -46,6 +55,8 @@ quantmod是R语言中的金融量化投资分析包，提供量化投资分析�
 > reChart(major.ticks='months',subset='first 16 weeks') 
 > chartSeries(GS, theme="white",TA="addVo();addBBands();addCCI()") 
 ```
+
+#### 2.4 金融建模
 
 ### 3 更多知识
 
