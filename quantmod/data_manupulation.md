@@ -10,13 +10,14 @@
 
 is类函数用来判断数据是否属于某个特定类型。具体用法如下：
 
-* is.OHLC(x):检查是否是OHLC类型数据
-* is.OHLCV(x)：检查是否是OHLCV类型数据
-* is.BBO(x)：检查是否是BBO类型数据
-* is.TBBO(x)：检查是否是TBBO类型数据
-* is.HLC(x):检查是否是HLC类型数据
-* is.quantmod(x): 检查是否是quantmod对象
-* is.quantmodResults(x):  检查是否是quatmodResults对象
+---|---
+is.OHLC(x)|检查是否是OHLC类型数据
+is.OHLCV(x)|检查是否是OHLCV类型数据
+is.BBO(x)|检查是否是BBO类型数据
+is.TBBO(x)|检查是否是TBBO类型数据
+is.HLC(x)|检查是否是HLC类型数据
+is.quantmod(x)|检查是否是quantmod对象
+is.quantmodResults(x)|检查是否是quatmodResults对象
 
 举个例子。我们从网上获取 yahoo 公司的股票数据：
 
