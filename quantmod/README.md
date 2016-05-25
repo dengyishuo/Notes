@@ -3,5 +3,6 @@
 持续关注投资领域，让投资变得更简单！
 
 联系方式：
-Email:dengyishuo@163.com
-微博:http://weibo.com/dengyishuo
+
+email: dengyishuo@163.com
+weibo: http://weibo.com/dengyishuo
