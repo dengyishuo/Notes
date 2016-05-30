@@ -65,20 +65,22 @@ is.quantmodResults(x)|检查是否是quatmodResults对象
 
 has 族函数用来判断数据中是否包含某个列或者字段。
 
-* has.OHLC(x, which = FALSE) ：检查是否有open,high,low,close列或者字段
-* has.HLC(x, which = FALSE)：检查是否有high,low,close列或者字段
-* has.OHLCV(x, which = FALSE)：检查是否有open,high,low,close,volume列或者字段
-* has.Op(x, which = FALSE)：检查是否有open列或者字段
-* has.Hi(x, which = FALSE)：检查是否有high列或者字段
-* has.Lo(x, which = FALSE)：检查是否有low列或者字段
-* has.Cl(x, which = FALSE)：检查是否有close列或者字段
-* has.Vo(x, which = FALSE)：检查是否有volume列或者字段
-* has.Ad(x, which = FALSE)：检查是否有adjust列或者字段
-* has.Ask(x, which = FALSE)：检查是否有ask列或者字段
-* has.Bid(x, which = FALSE)：检查是否有bid列或者字段
-* has.Price(x, which = FALSE)：检查是否有price列或者字段
-* has.Qty(x, which = FALSE)：检查是否Qty列或者字段
-* has.Trade(x, which = FALSE)：检查是否有trade列或者字段
+函数｜用途
+-------------------------------｜----------------------------------
+has.OHLC(x, which = FALSE)     ｜检查是否有open,high,low,close列或者字段
+has.HLC(x, which = FALSE)      ｜检查是否有high,low,close列或者字段
+has.OHLCV(x, which = FALSE)    ｜检查是否有open,high,low,close,volume列或者字段
+has.Op(x, which = FALSE)       ｜检查是否有open列或者字段
+has.Hi(x, which = FALSE)       ｜检查是否有high列或者字段
+has.Lo(x, which = FALSE)       ｜检查是否有low列或者字段
+has.Cl(x, which = FALSE)       ｜检查是否有close列或者字段
+has.Vo(x, which = FALSE)       ｜检查是否有volume列或者字段
+has.Ad(x, which = FALSE)       ｜检查是否有adjust列或者字段
+has.Ask(x, which = FALSE)      ｜检查是否有ask列或者字段
+has.Bid(x, which = FALSE)      ｜检查是否有bid列或者字段
+has.Price(x, which = FALSE)    ｜检查是否有price列或者字段
+has.Qty(x, which = FALSE)      ｜检查是否Qty列或者字段
+has.Trade(x, which = FALSE)    ｜检查是否有trade列或者字段
 
 ```{r}
 # 检查是否有open,high,low,close列或者字段
@@ -102,14 +104,16 @@ has 族函数用来判断数据中是否包含某个列或者字段。
 
 #### 2.2.1 提取列数据
 
-* Op(x):提取开盘价
-* Hi(x):提取最高价
-* Lo(x):提取最低价
-* Cl(x):提取收盘价
-* Vo(x):提取交易量
-* Ad(x):提取调整价格
-* HLC(x):提取最高价、最低价和收盘价
-* OHLC(x):提取开盘价、最高价、最低价和收盘价
+函数｜用途
+---------|----------
+Op(x)    |提取开盘价
+Hi(x)    |提取最高价
+Lo(x)    |提取最低价
+Cl(x)    |提取收盘价
+Vo(x)    |提取交易量
+Ad(x)    |提取调整价格
+HLC(x)   |提取最高价、最低价和收盘价
+OHLC(x)  |提取开盘价、最高价、最低价和收盘价
 
 ```{r}
 ## 提取开盘价
@@ -199,7 +203,7 @@ YHOO.Open YHOO.High YHOO.Low YHOO.Close
 * last(x,k):求后k个
 * []
 
-``` r
+``` {r}
 # 截取第一个数据
 > first(YHOO)
            YHOO.Open YHOO.High YHOO.Low YHOO.Close YHOO.Volume YHOO.Adjusted
@@ -308,7 +312,7 @@ YHOO.Open YHOO.High YHOO.Low YHOO.Close
 
 lag 函数的作用是将数据滞后 k 期。比如，下面的例子中，2007-01-03 的取值 25.85 被滞后一期到 2007-01-04。或者说，lag(Op(YHOO)) 对象中的 2007-01-04 对应的 是Op(YAHO) 的 2007-01-03 的对象。
 
-``` r
+``` {r}
 > head(Op(YHOO))
            YHOO.Open
 2007-01-03     25.85
@@ -341,7 +345,7 @@ lag 函数的作用是将数据滞后 k 期。比如，下面的例子中，2007
 
 提前函数的作用于lag函数的作用刚好相反。看下面的例子：
 
-``` r
+``` {r}
 ## 提前函数
 > Next(Op(YHOO))
             Next
@@ -357,11 +361,11 @@ lag 函数的作用是将数据滞后 k 期。比如，下面的例子中，2007
 
 Delt 函数的作用是计算变化率或者变动比率。基本用法如下：
 
-``` r
+``` {r}
 Delt(x1, x2 = NULL, k = 0, type = c("arithmetic", "log")) 
 ```
 
-``` r
+```{r}
 Stock.Open <- c(102.25,102.87,102.25,100.87,103.44,103.87,103.00)
 Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
@@ -380,7 +384,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 或者:
 
-```
+```{r{
 > Delt(Stock.Open,k=1)
    Delt.1.arithmetic
 [1,]                NA
@@ -394,14 +398,14 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 等同于：
 
-``` r
+``` {r}
 > diff(Stock.Open)/Stock.Open[1:6]
 0.006063570 -0.006027024 -0.013496333  0.025478338  0.004156999 -0.008375854
 ```
 
 也即是计算（T日收盘价-T-1日收盘价）/T-1日收盘价，对应的金融意义是算术收益率。当然，也可以计算几何收益率或者对数收益率，只需将 type 参数设定为 log 即可。
 
-``` r
+``` {r}
 > Delt(Stock.Open,type='log')
       Delt.1.log
 [1,]           NA
@@ -415,7 +419,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 等同于：
 
-``` r
+``` {r}
 > diff(log(Stock.Open))
 [1]  0.006045260 -0.006045260 -0.013588236  0.025159175  0.004148383 -0.008411129
 > 
@@ -423,7 +427,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 除此之外还可以两列数据之间的变动比例。比如：
 
-``` r
+``` {r}
 > Delt(Stock.Open,Stock.Close)
      Delt.0.arithmetic
 [1,]      -0.001271394
@@ -437,7 +441,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 等同于:
 
-``` r
+``` {r}
 > (Stock.Open-Stock.Close)/Stock.Open
 [1]  0.001271394  0.002430252  0.020831296 -0.021116288 -0.004156999  0.007220564 -0.020582524
 ```
@@ -446,7 +450,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 计算开盘价与下一期收盘价的差
 
-``` r
+``` {r}
 > Delt(Stock.Open,Stock.Close,k=1)
      Delt.1.arithmetic
 [1,]                NA
@@ -460,7 +464,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 等同于：
 
-``` r
+``` {r}
 > (Stock.Open[1:6]-Stock.Close[2:7])/Stock.Open[1:6]
 [1] -0.003618582  0.026732770 -0.007334963 -0.029741251  0.003093581 -0.012034274
 ```
@@ -476,7 +480,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 * OpLo(x):等同于Delt(OP(x),Lo(x))
 * OpOp(x):等同于Delt(Op(x))
 
-``` r
+```{r}
 > head(YHOO)
           YHOO.Open YHOO.High YHOO.Low YHOO.Close YHOO.Volume YHOO.Adjusted
 2007-01-03     25.85     26.26    25.26      25.61    26352700         25.61
@@ -596,7 +600,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 或者
 
-``` r
+``` {r]
 > dailyReturn(YHOO)
            daily.returns
 2007-01-03  -0.009284333
@@ -621,7 +625,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 或者
 
-``` r
+``` {r}
 > weeklyReturn(YHOO)
            weekly.returns
 2007-01-05     0.07311412
@@ -658,7 +662,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 2007-06-29     -0.05470383
 ```
 
-``` r
+``` {r}
 #求季度度收益率
 > periodReturn(YHOO,period='quarterly')
            quarterly.returns
@@ -672,7 +676,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 或者
 
-``` r
+``` {r}
 > quarterlyReturn(YHOO)
            quarterly.returns
 2007-03-30        0.21044487
@@ -843,7 +847,7 @@ Daily periodicity from 2007-01-03 to 2014-11-05
 * seriesDecr(x, thresh=0, diff.=1L)：下跌
 * endpoints()：寻找节点
 
-``` r
+``` {r}
 > head(seriesIncr(Op(YHOO)))
            YHOO.Open
 2007-01-03        NA
