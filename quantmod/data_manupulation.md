@@ -65,22 +65,22 @@ is.quantmodResults(x)|检查是否是quatmodResults对象
 
 has 族函数用来判断数据中是否包含某个列或者字段。
 
-函数                           ｜用途
--------------------------------｜----------------------------------
-has.OHLC(x, which = FALSE)     ｜检查是否有open,high,low,close列或者字段
-has.HLC(x, which = FALSE)      ｜检查是否有high,low,close列或者字段
-has.OHLCV(x, which = FALSE)    ｜检查是否有open,high,low,close,volume列或者字段
-has.Op(x, which = FALSE)       ｜检查是否有open列或者字段
-has.Hi(x, which = FALSE)       ｜检查是否有high列或者字段
-has.Lo(x, which = FALSE)       ｜检查是否有low列或者字段
-has.Cl(x, which = FALSE)       ｜检查是否有close列或者字段
-has.Vo(x, which = FALSE)       ｜检查是否有volume列或者字段
-has.Ad(x, which = FALSE)       ｜检查是否有adjust列或者字段
-has.Ask(x, which = FALSE)      ｜检查是否有ask列或者字段
-has.Bid(x, which = FALSE)      ｜检查是否有bid列或者字段
-has.Price(x, which = FALSE)    ｜检查是否有price列或者字段
-has.Qty(x, which = FALSE)      ｜检查是否Qty列或者字段
-has.Trade(x, which = FALSE)    ｜检查是否有trade列或者字段
+函数                 |用途
+---------------------|------------------
+has.OHLC(x, which = FALSE)     |检查是否有open,high,low,close列或者字段
+has.HLC(x, which = FALSE)      |检查是否有high,low,close列或者字段
+has.OHLCV(x, which = FALSE)    |检查是否有open,high,low,close,volume列或者字段
+has.Op(x, which = FALSE)       |检查是否有open列或者字段
+has.Hi(x, which = FALSE)       |检查是否有high列或者字段
+has.Lo(x, which = FALSE)       |检查是否有low列或者字段
+has.Cl(x, which = FALSE)       |检查是否有close列或者字段
+has.Vo(x, which = FALSE)       |检查是否有volume列或者字段
+has.Ad(x, which = FALSE)       |检查是否有adjust列或者字段
+has.Ask(x, which = FALSE)      |检查是否有ask列或者字段
+has.Bid(x, which = FALSE)      |检查是否有bid列或者字段
+has.Price(x, which = FALSE)    |检查是否有price列或者字段
+has.Qty(x, which = FALSE)      |检查是否Qty列或者字段
+has.Trade(x, which = FALSE)    |检查是否有trade列或者字段
 
 ```{r}
 # 检查是否有open,high,low,close列或者字段
@@ -104,7 +104,7 @@ has.Trade(x, which = FALSE)    ｜检查是否有trade列或者字段
 
 #### 2.2.1 提取列数据
 
-函数｜用途
+函数     |用途
 ---------|----------
 Op(x)    |提取开盘价
 Hi(x)    |提取最高价
@@ -384,7 +384,7 @@ Stock.Close <- c(102.12,102.62,100.12,103.00,103.87,103.12,105.12)
 
 或者:
 
-```{r{
+```{r}
 > Delt(Stock.Open,k=1)
    Delt.1.arithmetic
 [1,]                NA
