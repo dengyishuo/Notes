@@ -65,7 +65,7 @@ is.quantmodResults(x)|检查是否是quatmodResults对象
 
 has 族函数用来判断数据中是否包含某个列或者字段。
 
-函数｜用途
+函数                           ｜用途
 -------------------------------｜----------------------------------
 has.OHLC(x, which = FALSE)     ｜检查是否有open,high,low,close列或者字段
 has.HLC(x, which = FALSE)      ｜检查是否有high,low,close列或者字段
