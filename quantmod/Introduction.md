@@ -58,6 +58,13 @@ quantmod是R语言中的金融量化投资分析包，提供量化投资分析�
 
 #### 2.4 金融建模
 
+```{r}
+getSymbols(c("^SSEC","CHL"))
+q.model <- specifyModel(Next(OpCl(CHL)) ~ Lag(OpHi(CHL),0:3) + Hi(SSEC))
+q.model
+head(modelData(q.model))
+
+```
 ### 3 更多知识
 
 * 学习quantmod提取数据:点击[Get data](https://github.com/dengyishuo/Notes/blob/master/quantmod/Get_data.md)
