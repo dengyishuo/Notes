@@ -63,7 +63,10 @@ getSymbols(c("^SSEC","CHL"))
 q.model <- specifyModel(Next(OpCl(CHL)) ~ Lag(OpHi(CHL),0:3) + Hi(SSEC))
 q.model
 head(modelData(q.model))
-
+bD=buildData(Next(OpCl(CHL)) ~ Lag(OpHi(CHL),0:3) + Hi(SSEC))
+bM <- buildModel(q.model,method='lm',training.per=c('2013-08-01','2013-09-30'))
+summary(bM)
+tradeModel(bM)
 ```
 ### 3 更多知识
 
